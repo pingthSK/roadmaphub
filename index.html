@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    let num = 0;
+    let url = "";
+    let wholetext = "";
+    let input = prompt("Hi! This is QuizMakerX!\nEnter Quiz's Code or simply press enter to start making one");
+    function newQuiz(){
+        num += 1;
+        url += prompt("Enter Quiz"+num+"'s title")+' ';
+
+        for(let i=0; i<4 ;i++){
+            url += prompt("Enter Choice"+i)+' ';
+        }
+        console.log(url);
+        input = prompt("More idea? (type no or click cancel to finish making)");
+
+    }
+    if(input == ""){
+        alert("Okay! Let's make a new one!");
+        while(input !== "no"){
+            newQuiz();
+        }
+        wholetext = textToNum();
+        alert(wholetext);
+        console.log(wholetext);
+       
+    }else{
+        alert("He");
+    }
+    const alphabets = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    const numbers = [' ', 'z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
+
+    function textToNum() {
+        let msg = "";
+        let textToNum = url.toLowerCase();
+        for (let i of textToNum) {
+            if (alphabets.includes(i)) {
+                let aIndex = alphabets.indexOf(i);
+                let numIndex = numbers[aIndex];
+                msg += numIndex;
+            }
+        }
+        console.log(msg);
+        wholetext = msg;
+    }
+
+    function numToText() {
+        let msg = "";
+        let numToText = prompt("Insert hidden text: ").toLowerCase();
+        for (let i of numToText) {
+            if (numbers.includes(i)) {
+                let numIndex = numbers.indexOf(i);
+                let aIndex = alphabets[numIndex];
+                msg += aIndex;
+            }
+        }
+        url = msg;
+    }
+
+    /*let choose = prompt("1=Hide Text, 0=Unhide Text: ");
+    if (choose === "1") {
+        textToNum();
+    } else {
+        numToText();
+    }*/
+
+    console.log("\n-----\nMade By Nudtanun Warnnissorn\n\tHope you are having fun with this program\n\tOr using it to make a secret message\nThank you for using!\n\n\n(btw I write this code entirely by hand and forgot to copy codes from other dev)");
+
+
+</script>
+</body>
+</html>
